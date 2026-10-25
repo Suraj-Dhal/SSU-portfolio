@@ -2,7 +2,6 @@ import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recha
 import { ChartCard } from "@/components/portfolio/ChartCard";
 import { PageIntro } from "@/components/portfolio/PageIntro";
 import { Reveal } from "@/components/portfolio/Reveal";
-import { SectionHeading } from "@/components/portfolio/SectionHeading";
 import { themeDistribution } from "@/data/impact";
 import { researchThemes } from "@/data/researchThemes";
 

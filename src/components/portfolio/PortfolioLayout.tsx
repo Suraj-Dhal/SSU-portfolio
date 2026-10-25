@@ -2,7 +2,6 @@ import { ArrowUpRight, ChevronDown, Mail, MapPin, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import { profile, verifiedLinks } from "@/data/profile";
-import { SignatureDivider } from "@/components/portfolio/SignatureDivider";
 import { cn } from "@/lib/utils";
 
 const navGroups = [
@@ -91,10 +90,15 @@ function linkClass(isActive: boolean) {
 export function PortfolioLayout() {
   const [open, setOpen] = useState(false);
   const location = useLocation();
+  const [menuPathname, setMenuPathname] = useState(location.pathname);
 
-  useEffect(() => {
+  // Close the mobile menu whenever the route changes (including browser back/forward).
+  // Adjusting state during render avoids the extra render pass of a state-syncing effect:
+  // https://react.dev/learn/you-might-not-need-an-effect#adjusting-some-state-when-a-prop-changes
+  if (menuPathname !== location.pathname) {
+    setMenuPathname(location.pathname);
     setOpen(false);
-  }, [location.pathname]);
+  }
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
