@@ -2,13 +2,24 @@
   "name": "sharanika-dhal-portfolio",
   "version": "1.0.0",
   "private": true,
+  "description": "Academic portfolio website for Dr. Sharanika Dhal, Assistant Professor in HR at Sri Sri University.",
+  "homepage": "https://sharanikadhal.co.in",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Suraj-Dhal/sharanika-dhal-portfolio.git"
+  },
+  "license": "MIT",
+  "author": "Suraj Dhal (https://surajdhal.com)",
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
-    "start": "vite --host 0.0.0.0",
+    "preview": "vite preview",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run typecheck && npm run lint && npm run format:check && npm run build"
   },
   "dependencies": {
     "clsx": "^2.1.1",
@@ -34,12 +45,13 @@
     "eslint-plugin-react-refresh": "^0.5.7",
     "globals": "^17.13.0",
     "postcss": "^8.5.12",
+    "prettier": "^3.9.10",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.72.0",
     "vite": "^5.4.20"
   },
   "engines": {
-    "node": ">=18.17"
+    "node": ">=18.18"
   }
 }
