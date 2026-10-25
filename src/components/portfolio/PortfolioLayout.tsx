@@ -11,16 +11,16 @@ const navGroups = [
     label: "About",
     children: [
       { href: "/about", label: "Biography" },
-      { href: "/awards", label: "Awards" }
-    ]
+      { href: "/awards", label: "Awards" },
+    ],
   },
   {
     href: "/experience",
     label: "Work",
     children: [
       { href: "/experience", label: "Academic Experience" },
-      { href: "/gallery", label: "Gallery" }
-    ]
+      { href: "/gallery", label: "Gallery" },
+    ],
   },
   {
     href: "/impact",
@@ -30,11 +30,11 @@ const navGroups = [
       { href: "/publications", label: "Publications" },
       { href: "/books", label: "Books" },
       { href: "/research-themes", label: "Themes" },
-      { href: "/science-writing", label: "Science Writing" }
-    ]
+      { href: "/science-writing", label: "Science Writing" },
+    ],
   },
   { href: "/conferences", label: "Engagement" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact" },
 ];
 
 const footerSections = [
@@ -48,30 +48,30 @@ const footerSections = [
   { href: "/conferences", label: "Engagements" },
   { href: "/science-writing", label: "Science Writing" },
   { href: "/gallery", label: "Gallery" },
-  { href: "/contact", label: "Contact" }
+  { href: "/contact", label: "Contact" },
 ];
 
 const scholarlyLinks = [
   {
     label: "Google Scholar",
-    href: "https://scholar.google.com/citations?hl=en&user=lWbRQ2UAAAAJ"
+    href: "https://scholar.google.com/citations?hl=en&user=lWbRQ2UAAAAJ",
   },
   {
     label: "ResearchGate",
-    href: "https://www.researchgate.net/profile/Sharanika-Dhal-2"
+    href: "https://www.researchgate.net/profile/Sharanika-Dhal-2",
   },
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/dr-sharanika-dhal-9ab99a16b/"
+    href: "https://www.linkedin.com/in/dr-sharanika-dhal-9ab99a16b/",
   },
   {
     label: "Sri Sri University",
-    href: "https://srisriuniversity.edu.in/sharanika-dhal/"
+    href: "https://srisriuniversity.edu.in/sharanika-dhal/",
   },
   {
     label: "Faculty of Management Studies",
-    href: "https://srisriuniversity.edu.in/faculty-of-management-studies/"
-  }
+    href: "https://srisriuniversity.edu.in/faculty-of-management-studies/",
+  },
 ];
 
 function isGroupActive(pathname: string, item: (typeof navGroups)[number]) {
@@ -83,7 +83,7 @@ function isGroupActive(pathname: string, item: (typeof navGroups)[number]) {
 function linkClass(isActive: boolean) {
   return cn(
     "rounded-full px-3 py-2 text-sm font-semibold text-text-muted transition hover:bg-surface hover:text-blue-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-deep",
-    isActive && "bg-blue-tint text-blue-deep"
+    isActive && "bg-blue-tint text-blue-deep",
   );
 }
 
@@ -110,14 +110,21 @@ export function PortfolioLayout() {
   return (
     <div className="min-h-screen bg-bg text-text">
       <header className="sticky top-0 z-50 border-b border-hairline bg-white shadow-sm">
-        <nav className="container-grid flex min-h-16 items-center justify-between gap-5" aria-label="Primary navigation">
+        <nav
+          className="container-grid flex min-h-16 items-center justify-between gap-5"
+          aria-label="Primary navigation"
+        >
           <NavLink
             to="/"
             className="flex min-w-0 shrink-0 items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-deep"
             onClick={() => setOpen(false)}
           >
             <span className="h-10 w-10 overflow-hidden rounded-full border border-blue-deep/20 bg-blue-tint shadow-sm">
-              <img src="/images/profile/sharanika-dhal.jpg" alt="" className="h-full w-full object-cover object-[50%_22%]" />
+              <img
+                src="/images/profile/sharanika-dhal.jpg"
+                alt=""
+                className="h-full w-full object-cover object-[50%_22%]"
+              />
             </span>
             <span className="min-w-0">
               <span className="block truncate text-sm font-bold text-text">{profile.name}</span>
@@ -143,7 +150,7 @@ export function PortfolioLayout() {
                         className={({ isActive }) =>
                           cn(
                             "block rounded-lg px-4 py-3 text-sm font-semibold text-text-muted transition hover:bg-surface hover:text-blue-deep",
-                            isActive && "bg-blue-tint text-blue-deep"
+                            isActive && "bg-blue-tint text-blue-deep",
                           )
                         }
                       >
@@ -153,10 +160,15 @@ export function PortfolioLayout() {
                   </div>
                 </div>
               ) : (
-                <NavLink key={item.href} to={item.href} className={({ isActive }) => linkClass(isActive)} end={item.href === "/"}>
+                <NavLink
+                  key={item.href}
+                  to={item.href}
+                  className={({ isActive }) => linkClass(isActive)}
+                  end={item.href === "/"}
+                >
                   {item.label}
                 </NavLink>
-              )
+              ),
             )}
           </div>
 
@@ -172,11 +184,20 @@ export function PortfolioLayout() {
         </nav>
 
         {open ? (
-          <div className="fixed inset-0 z-50 bg-white lg:hidden" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+          <div
+            className="fixed inset-0 z-50 bg-white lg:hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mobile navigation"
+          >
             <div className="container-grid flex min-h-16 items-center justify-between border-b border-hairline bg-white">
               <span className="flex min-w-0 items-center gap-3">
                 <span className="h-10 w-10 overflow-hidden rounded-full border border-blue-deep/20 bg-blue-tint">
-                  <img src="/images/profile/sharanika-dhal.jpg" alt="" className="h-full w-full object-cover object-[50%_22%]" />
+                  <img
+                    src="/images/profile/sharanika-dhal.jpg"
+                    alt=""
+                    className="h-full w-full object-cover object-[50%_22%]"
+                  />
                 </span>
                 <span className="min-w-0">
                   <span className="block truncate text-sm font-bold text-text">{profile.name}</span>
@@ -203,7 +224,7 @@ export function PortfolioLayout() {
                       className={({ isActive }) =>
                         cn(
                           "block rounded-lg bg-white px-4 py-3 text-lg font-bold text-text shadow-sm",
-                          (isActive || isGroupActive(location.pathname, item)) && "text-blue-deep"
+                          (isActive || isGroupActive(location.pathname, item)) && "text-blue-deep",
                         )
                       }
                     >
@@ -219,7 +240,7 @@ export function PortfolioLayout() {
                             className={({ isActive }) =>
                               cn(
                                 "rounded-lg px-3 py-2 text-sm font-semibold text-text-muted transition hover:bg-white hover:text-blue-deep",
-                                isActive && "bg-white text-blue-deep"
+                                isActive && "bg-white text-blue-deep",
                               )
                             }
                           >
@@ -249,7 +270,11 @@ export function PortfolioLayout() {
                 className="inline-flex items-center gap-3 rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue-deep"
               >
                 <span className="h-14 w-14 overflow-hidden rounded-full border border-blue-deep/20 bg-blue-tint shadow-sm">
-                  <img src="/images/profile/sharanika-dhal.jpg" alt="" className="h-full w-full object-cover object-[50%_22%]" />
+                  <img
+                    src="/images/profile/sharanika-dhal.jpg"
+                    alt=""
+                    className="h-full w-full object-cover object-[50%_22%]"
+                  />
                 </span>
                 <span>
                   <span className="block text-xl font-bold text-text">{profile.name}</span>
@@ -288,7 +313,7 @@ export function PortfolioLayout() {
                     className={({ isActive }) =>
                       cn(
                         "w-fit text-lg font-medium leading-7 text-text-muted transition hover:text-blue-deep",
-                        isActive && "text-blue-deep"
+                        isActive && "text-blue-deep",
                       )
                     }
                   >
@@ -310,7 +335,10 @@ export function PortfolioLayout() {
                     rel="noreferrer"
                   >
                     {link.label}
-                    <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                    <ArrowUpRight
+                      className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      aria-hidden="true"
+                    />
                   </a>
                 ))}
                 {verifiedLinks
@@ -324,7 +352,10 @@ export function PortfolioLayout() {
                       rel="noreferrer"
                     >
                       {link.label}
-                      <ArrowUpRight className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5" aria-hidden="true" />
+                      <ArrowUpRight
+                        className="h-5 w-5 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                        aria-hidden="true"
+                      />
                     </a>
                   ))}
               </div>

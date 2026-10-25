@@ -10,8 +10,8 @@ export function ResearchThemes() {
     <>
       <PageIntro eyebrow="Research themes" title="An interpretive map of the scholarship">
         <p>
-          The themes below organize the verified research interests and publication clusters into four practical domains: HRM, healthcare systems,
-          sustainability, and digital behavior.
+          The themes below organize the verified research interests and publication clusters into four practical
+          domains: HRM, healthcare systems, sustainability, and digital behavior.
         </p>
       </PageIntro>
 

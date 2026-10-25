@@ -106,7 +106,8 @@ export function Home() {
         <div className="container-grid">
           <Reveal>
             <SectionHeading eyebrow="Featured work" title="Recent scholarly trajectory">
-              The strongest source-supported trajectory appears in book and volume work, 2025-2026 publications, and public science writing.
+              The strongest source-supported trajectory appears in book and volume work, 2025-2026 publications, and
+              public science writing.
             </SectionHeading>
           </Reveal>
           <div className="grid gap-5 lg:grid-cols-3">
@@ -115,7 +116,8 @@ export function Home() {
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-faint">Books</p>
                 <h3 className="mt-4 text-2xl font-bold text-text">{books.length} verified contributions</h3>
                 <p className="mt-4 text-sm leading-7 text-text-muted">
-                  Includes authored, co-authored, and chapter contribution work with Inkscribe, PnP Academy, Emerald Publishing, IGI Global, and CRC Press.
+                  Includes authored, co-authored, and chapter contribution work with Inkscribe, PnP Academy, Emerald
+                  Publishing, IGI Global, and CRC Press.
                 </p>
               </article>
             </Reveal>
@@ -124,7 +126,8 @@ export function Home() {
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-faint">2025-2026</p>
                 <h3 className="mt-4 text-2xl font-bold text-text">{recentTrajectory} listed outputs</h3>
                 <p className="mt-4 text-sm leading-7 text-text-muted">
-                  The recent list includes sustainability, healthcare attitudes, e-pharmacy, consumer behavior, and management conference work.
+                  The recent list includes sustainability, healthcare attitudes, e-pharmacy, consumer behavior, and
+                  management conference work.
                 </p>
               </article>
             </Reveal>
@@ -133,7 +136,8 @@ export function Home() {
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-text-faint">Public communication</p>
                 <h3 className="mt-4 text-2xl font-bold text-text">Science Horizon writing</h3>
                 <p className="mt-4 text-sm leading-7 text-text-muted">
-                  Five listed pieces translate health, environment, geoscience, and space science topics for a general audience.
+                  Five listed pieces translate health, environment, geoscience, and space science topics for a general
+                  audience.
                 </p>
               </article>
             </Reveal>
@@ -173,7 +177,14 @@ export function Home() {
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie data={themeDistribution} dataKey="value" nameKey="name" innerRadius={62} outerRadius={100} paddingAngle={3}>
+                    <Pie
+                      data={themeDistribution}
+                      dataKey="value"
+                      nameKey="name"
+                      innerRadius={62}
+                      outerRadius={100}
+                      paddingAngle={3}
+                    >
                       {themeDistribution.map((entry, index) => (
                         <Cell key={entry.name} fill={chartColors[index % chartColors.length]} />
                       ))}
@@ -186,8 +197,8 @@ export function Home() {
           </Reveal>
         </div>
         <SourceNote>
-          Metrics and charts are derived from the uploaded bio, SSU data, LinkedIn-style extract, and ResearchGate extract. No citation count,
-          h-index, email, or unverified profile link is displayed.
+          Metrics and charts are derived from the uploaded bio, SSU data, LinkedIn-style extract, and ResearchGate
+          extract. No citation count, h-index, email, or unverified profile link is displayed.
         </SourceNote>
       </section>
 

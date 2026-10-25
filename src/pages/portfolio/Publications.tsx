@@ -8,7 +8,7 @@ import {
   publicationTypes,
   publicationVenues,
   publicationYears,
-  publications
+  publications,
 } from "@/data/publications";
 
 const monthOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -35,7 +35,8 @@ export function Publications() {
     <>
       <PageIntro eyebrow="Publication archive" title="A filterable record of publications and source-listed outputs">
         <p>
-          The archive is sorted from newest to oldest and uses only titles, venues, years, DOIs, and publisher references available in the uploaded data.
+          The archive is sorted from newest to oldest and uses only titles, venues, years, DOIs, and publisher
+          references available in the uploaded data.
         </p>
       </PageIntro>
 
@@ -105,7 +106,9 @@ export function Publications() {
         </Reveal>
 
         <Reveal className="mt-8">
-          <p className="font-mono text-sm uppercase tracking-[0.14em] text-text-faint">{filtered.length} entries shown</p>
+          <p className="font-mono text-sm uppercase tracking-[0.14em] text-text-faint">
+            {filtered.length} entries shown
+          </p>
         </Reveal>
 
         <div className="mt-5 divide-y divide-hairline rounded-xl border border-hairline bg-white">
@@ -114,15 +117,23 @@ export function Publications() {
               <article className="grid gap-4 p-5 transition hover:bg-surface md:grid-cols-[120px_1fr_180px]">
                 <div>
                   <p className="font-mono text-lg text-blue-deep">{publication.year}</p>
-                  {publication.month ? <p className="font-mono text-xs uppercase tracking-[0.14em] text-text-faint">{publication.month}</p> : null}
+                  {publication.month ? (
+                    <p className="font-mono text-xs uppercase tracking-[0.14em] text-text-faint">{publication.month}</p>
+                  ) : null}
                 </div>
                 <div>
                   <h2 className="text-lg font-bold leading-7 text-text">{publication.title}</h2>
                   <p className="mt-2 text-sm leading-6 text-text-muted">{publication.venue}</p>
-                  {publication.note ? <p className="mt-2 text-sm leading-6 text-text-faint">{publication.note}</p> : null}
+                  {publication.note ? (
+                    <p className="mt-2 text-sm leading-6 text-text-faint">{publication.note}</p>
+                  ) : null}
                   <div className="mt-3 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-blue-tint px-3 py-1 text-xs font-semibold text-blue-deep">{publication.type}</span>
-                    <span className="rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-text-muted">{publication.domain}</span>
+                    <span className="rounded-full bg-blue-tint px-3 py-1 text-xs font-semibold text-blue-deep">
+                      {publication.type}
+                    </span>
+                    <span className="rounded-full bg-surface-2 px-3 py-1 text-xs font-semibold text-text-muted">
+                      {publication.domain}
+                    </span>
                   </div>
                 </div>
                 <div className="space-y-2 text-sm md:text-right">
@@ -146,8 +157,8 @@ export function Publications() {
         </div>
         <div className="mt-8">
           <SourceNote>
-            The archive includes 19 entries to match the ResearchGate metric. Titles marked as truncated or role-limited preserve the source uncertainty
-            instead of expanding missing details.
+            The archive includes 19 entries to match the ResearchGate metric. Titles marked as truncated or role-limited
+            preserve the source uncertainty instead of expanding missing details.
           </SourceNote>
         </div>
       </section>

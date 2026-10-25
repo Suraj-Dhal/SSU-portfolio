@@ -10,7 +10,7 @@ const writingByYear = Array.from(
   scienceWriting.reduce((map, item) => {
     map.set(item.year, (map.get(item.year) ?? 0) + 1);
     return map;
-  }, new Map<number, number>())
+  }, new Map<number, number>()),
 )
   .map(([year, count]) => ({ year: String(year), articles: count }))
   .sort((a, b) => Number(a.year) - Number(b.year));
@@ -20,7 +20,8 @@ export function ScienceWriting() {
     <>
       <PageIntro eyebrow="Science writing" title="Public communication as part of scholarly identity">
         <p>
-          Dr. Dhal's Science Horizon pieces show public-facing intellectual work across health, environmental science, geoscience, and space education.
+          Dr. Dhal's Science Horizon pieces show public-facing intellectual work across health, environmental science,
+          geoscience, and space education.
         </p>
       </PageIntro>
 
@@ -64,7 +65,9 @@ export function ScienceWriting() {
           ))}
         </div>
         <div className="mt-8">
-          <SourceNote>Issue dates and article topics are taken from the portfolio research extract's Science Horizon table.</SourceNote>
+          <SourceNote>
+            Issue dates and article topics are taken from the portfolio research extract's Science Horizon table.
+          </SourceNote>
         </div>
       </section>
     </>

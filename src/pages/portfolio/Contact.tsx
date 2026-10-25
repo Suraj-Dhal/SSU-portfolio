@@ -35,8 +35,8 @@ export function Contact() {
     <>
       <PageIntro eyebrow="Contact" title="Academic collaboration and institutional inquiry">
         <p>
-          Contact details are limited to verified institutional identity and profile references from the uploaded data. Unverified email, phone, and
-          personal social links are omitted.
+          Contact details are limited to verified institutional identity and profile references from the uploaded data.
+          Unverified email, phone, and personal social links are omitted.
         </p>
       </PageIntro>
 
@@ -92,7 +92,11 @@ export function Contact() {
               </div>
               <label className="form-label mt-5">
                 Inquiry topic
-                <input name="topic" className="form-input" placeholder="Academic collaboration, lecture, research discussion" />
+                <input
+                  name="topic"
+                  className="form-input"
+                  placeholder="Academic collaboration, lecture, research discussion"
+                />
               </label>
               <label className="form-label mt-5">
                 Message
@@ -105,9 +109,14 @@ export function Contact() {
                 <Send className="h-4 w-4" aria-hidden="true" />
                 Prepare inquiry
               </button>
-              {status ? <p className="mt-4 text-sm leading-6 text-text-muted" role="status">{status}</p> : null}
+              {status ? (
+                <p className="mt-4 text-sm leading-6 text-text-muted" role="status">
+                  {status}
+                </p>
+              ) : null}
               <p className="mt-5 text-sm leading-7 text-text-muted">
-                This form is configured to create a mail draft only after a verified email address is added to the contact data file.
+                This form is configured to create a mail draft only after a verified email address is added to the
+                contact data file.
               </p>
             </form>
           </Reveal>

@@ -1,8 +1,4 @@
-export type SourceLabel =
-  | "LinkedIn extract"
-  | "SSU data"
-  | "ResearchGate extract"
-  | "Portfolio research extract";
+export type SourceLabel = "LinkedIn extract" | "SSU data" | "ResearchGate extract" | "Portfolio research extract";
 
 export type ResearchDomain =
   | "Human Resource Management"
@@ -11,7 +7,8 @@ export type ResearchDomain =
   | "Digital Behavior and Technology"
   | "Science Communication";
 
-export type PublicationType = "Article" | "Book" | "Book chapter" | "Conference paper" | "Volume entry" | "Science writing";
+export type PublicationType =
+  "Article" | "Book" | "Book chapter" | "Conference paper" | "Volume entry" | "Science writing";
 
 export interface Metric {
   label: string;

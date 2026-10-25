@@ -10,7 +10,7 @@ export const researchThemes: ResearchTheme[] = [
       "Her research uses competency mapping, training and development, HRIS, business intelligence, and quantitative methods including SPSS-based analysis.",
     practice:
       "The work supports curriculum, training, and performance systems that can make institutional decisions more evidence-driven and human-centered.",
-    source: "ResearchGate extract"
+    source: "ResearchGate extract",
   },
   {
     title: "Healthcare Systems",
@@ -21,7 +21,7 @@ export const researchThemes: ResearchTheme[] = [
       "Her healthcare research examines nursing competencies, quality improvement, teamwork effectiveness, technology adoption, and professional attitudes.",
     practice:
       "The findings connect training need identification with practical healthcare performance and quality improvement questions.",
-    source: "SSU data"
+    source: "SSU data",
   },
   {
     title: "Sustainability and Climate",
@@ -32,7 +32,7 @@ export const researchThemes: ResearchTheme[] = [
       "Her sustainability work includes Odisha-focused climate and territorial studies, nature-based health tourism, millet consumption, and public science communication.",
     practice:
       "The work links regional development, public policy, community wellbeing, and sustainable organizational responsibility.",
-    source: "Portfolio research extract"
+    source: "Portfolio research extract",
   },
   {
     title: "Digital Behavior and Technology",
@@ -43,6 +43,6 @@ export const researchThemes: ResearchTheme[] = [
       "Her research uses consumer behavior frameworks, UTAUT-based inquiry, perceived-risk analysis, and business intelligence perspectives.",
     practice:
       "The work helps explain how digital systems are accepted, delayed, or resisted by consumers, workers, and organizations.",
-    source: "Portfolio research extract"
-  }
+    source: "Portfolio research extract",
+  },
 ];

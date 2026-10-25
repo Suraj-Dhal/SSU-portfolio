@@ -1,11 +1,29 @@
-import { Area, AreaChart, Bar, BarChart, Cell, Pie, PieChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  Cell,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 import { ChartCard } from "@/components/portfolio/ChartCard";
 import { MetricCounter } from "@/components/portfolio/MetricCounter";
 import { PageIntro } from "@/components/portfolio/PageIntro";
 import { Reveal } from "@/components/portfolio/Reveal";
 import { SectionHeading } from "@/components/portfolio/SectionHeading";
 import { SourceNote } from "@/components/portfolio/SourceNote";
-import { collaborationClusters, engagementTrend, publicationMix, publicationsByYear, themeDistribution } from "@/data/impact";
+import {
+  collaborationClusters,
+  engagementTrend,
+  publicationMix,
+  publicationsByYear,
+  themeDistribution,
+} from "@/data/impact";
 import { heroMetrics } from "@/data/profile";
 
 const chartColors = ["#1E3A8A", "#2563EB", "#059669", "#3B82F6", "#C9A24A"];
@@ -15,8 +33,8 @@ export function Impact() {
     <>
       <PageIntro eyebrow="Research impact" title="A scholarship dashboard built from verified source data">
         <p>
-          This page summarizes publication volume, ResearchGate engagement, publication mix, thematic concentration, and documented collaboration
-          contexts without introducing unverified citation or affiliation metrics.
+          This page summarizes publication volume, ResearchGate engagement, publication mix, thematic concentration, and
+          documented collaboration contexts without introducing unverified citation or affiliation metrics.
         </p>
       </PageIntro>
 
@@ -55,7 +73,14 @@ export function Impact() {
               <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
                   <PieChart>
-                    <Pie data={publicationMix} dataKey="value" nameKey="name" innerRadius={58} outerRadius={98} paddingAngle={3}>
+                    <Pie
+                      data={publicationMix}
+                      dataKey="value"
+                      nameKey="name"
+                      innerRadius={58}
+                      outerRadius={98}
+                      paddingAngle={3}
+                    >
                       {publicationMix.map((entry, index) => (
                         <Cell key={entry.name} fill={chartColors[index % chartColors.length]} />
                       ))}
@@ -78,7 +103,14 @@ export function Impact() {
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={themeDistribution} layout="vertical" margin={{ left: 20 }}>
                     <XAxis type="number" allowDecimals={false} hide />
-                    <YAxis dataKey="name" type="category" width={150} tickLine={false} axisLine={false} tick={{ fontSize: 12 }} />
+                    <YAxis
+                      dataKey="name"
+                      type="category"
+                      width={150}
+                      tickLine={false}
+                      axisLine={false}
+                      tick={{ fontSize: 12 }}
+                    />
                     <Tooltip cursor={{ fill: "#EEF2F7" }} />
                     <Bar dataKey="value" fill="#1E3A8A" radius={[0, 6, 6, 0]} />
                   </BarChart>
@@ -107,8 +139,8 @@ export function Impact() {
 
         <Reveal className="mt-10">
           <SectionHeading eyebrow="Collaboration contexts" title="Documented networks without invented counts">
-            The source extract describes co-authoring and scholarly engagement through named institutional contexts, but it does not provide a verified
-            co-author count.
+            The source extract describes co-authoring and scholarly engagement through named institutional contexts, but
+            it does not provide a verified co-author count.
           </SectionHeading>
         </Reveal>
         <div className="grid gap-4 md:grid-cols-3">
@@ -123,8 +155,9 @@ export function Impact() {
         </div>
         <div className="mt-8">
           <SourceNote>
-            Publication and read metrics come from the ResearchGate extract. Engagement counts are derived from the listed conference, FDP, and workshop
-            entries. Collaboration is shown qualitatively because the provided data does not contain verified co-author totals.
+            Publication and read metrics come from the ResearchGate extract. Engagement counts are derived from the
+            listed conference, FDP, and workshop entries. Collaboration is shown qualitatively because the provided data
+            does not contain verified co-author totals.
           </SourceNote>
         </div>
       </section>

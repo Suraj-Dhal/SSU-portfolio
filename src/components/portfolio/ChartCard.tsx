@@ -5,7 +5,7 @@ export function ChartCard({
   title,
   summary,
   children,
-  className
+  className,
 }: {
   title: string;
   summary: string;
@@ -16,7 +16,7 @@ export function ChartCard({
     <section
       className={cn(
         "rounded-xl border border-hairline bg-white p-5 shadow-[0_16px_42px_rgba(10,14,26,0.05)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_22px_52px_rgba(10,14,26,0.08)]",
-        className
+        className,
       )}
       aria-label={title}
     >
@@ -25,7 +25,10 @@ export function ChartCard({
           <h3 className="text-lg font-semibold text-text">{title}</h3>
           <p className="mt-2 text-sm leading-6 text-text-muted">{summary}</p>
         </div>
-        <div className="mt-2 h-5 w-16 shrink-0 border-t border-blue-deep/70 border-r border-blue-deep/70" aria-hidden="true" />
+        <div
+          className="mt-2 h-5 w-16 shrink-0 border-t border-blue-deep/70 border-r border-blue-deep/70"
+          aria-hidden="true"
+        />
       </div>
       {children}
     </section>

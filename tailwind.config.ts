@@ -22,7 +22,7 @@ const config: Config = {
         primary: {
           DEFAULT: "#6366F1",
           hover: "#4F46E5",
-          soft: "#EEF2FF"
+          soft: "#EEF2FF",
         },
         app: "#F8FAFC",
         card: "#FFFFFF",
@@ -34,24 +34,24 @@ const config: Config = {
         danger: "#EF4444",
         info: "#3B82F6",
         ink: "#0A0A0A",
-        paper: "#FAFAFA"
+        paper: "#FAFAFA",
       },
       fontFamily: {
         sans: ["Manrope", "system-ui", "sans-serif"],
         serif: ["Instrument Serif", "Georgia", "serif"],
         mono: ["JetBrains Mono", "monospace"],
-        hand: ["var(--font-hand)", "Caveat", "cursive"]
+        hand: ["var(--font-hand)", "Caveat", "cursive"],
       },
       boxShadow: {
         lift: "0 22px 55px rgb(10 10 10 / 0.12)",
-        soft: "0 16px 45px rgb(10 10 10 / 0.08)"
+        soft: "0 16px 45px rgb(10 10 10 / 0.08)",
       },
       transitionTimingFunction: {
-        apple: "cubic-bezier(0.22, 1, 0.36, 1)"
-      }
-    }
+        apple: "cubic-bezier(0.22, 1, 0.36, 1)",
+      },
+    },
   },
-  plugins: [animate]
+  plugins: [animate],
 };
 
 export default config;

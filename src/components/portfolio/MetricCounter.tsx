@@ -7,7 +7,14 @@ export function MetricCounter({ metric }: { metric: Metric }) {
       <p className="min-h-10 font-mono text-xs uppercase tracking-[0.16em] text-text-faint">{metric.label}</p>
       <div className="mt-4 flex items-end gap-2">
         <span className="font-mono text-3xl font-medium text-text md:text-4xl">
-          <CountUp end={metric.value} duration={2} separator="," suffix={metric.suffix ?? ""} enableScrollSpy scrollSpyOnce />
+          <CountUp
+            end={metric.value}
+            duration={2}
+            separator=","
+            suffix={metric.suffix ?? ""}
+            enableScrollSpy
+            scrollSpyOnce
+          />
         </span>
       </div>
       {metric.display ? <p className="mt-1 text-sm font-medium text-blue-deep">{metric.display}</p> : null}

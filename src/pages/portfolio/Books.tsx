@@ -10,7 +10,8 @@ export function Books() {
     <>
       <PageIntro eyebrow="Books and volumes" title="Authorial and edited-volume contribution work">
         <p>
-          This page focuses on the five book, chapter, and volume contributions with verified roles or source-supported contribution context.
+          This page focuses on the five book, chapter, and volume contributions with verified roles or source-supported
+          contribution context.
         </p>
       </PageIntro>
 
@@ -35,7 +36,9 @@ export function Books() {
                 </div>
                 <p className="font-mono text-xs uppercase tracking-[0.16em] text-blue-deep">{book.role}</p>
                 <p className="mt-3 text-sm font-semibold text-text-muted">{book.publisher}</p>
-                {book.chapterTitle ? <p className="mt-4 text-sm leading-7 text-text">Chapter: {book.chapterTitle}</p> : null}
+                {book.chapterTitle ? (
+                  <p className="mt-4 text-sm leading-7 text-text">Chapter: {book.chapterTitle}</p>
+                ) : null}
                 <p className="mt-4 flex-1 text-sm leading-7 text-text-muted">{book.description}</p>
                 {book.isbn ? <p className="mt-5 font-mono text-xs text-text-faint">ISBN {book.isbn}</p> : null}
                 {book.link ? (
@@ -55,8 +58,8 @@ export function Books() {
         </div>
         <div className="mt-8">
           <SourceNote>
-            Healing with Nature in India and Innovating Sustainability are listed in the bio extract. The CRC Press, Emerald, and IGI Global entries are
-            described in the portfolio research extract.
+            Healing with Nature in India and Innovating Sustainability are listed in the bio extract. The CRC Press,
+            Emerald, and IGI Global entries are described in the portfolio research extract.
           </SourceNote>
         </div>
       </section>
