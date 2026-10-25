@@ -1,64 +1,83 @@
 # Dr. Sharanika Dhal — Academic Portfolio
 
-Personal academic portfolio website for **Dr. Sharanika Dhal**, presenting her research, publications, books, conference work, science writing, awards and outreach in one place.
+A responsive academic portfolio for **Dr. Sharanika Dhal**, presenting research, publications, books, conference work, science writing, awards, impact, and outreach in one accessible experience.
 
-Built with **React + TypeScript + Vite**, styled with **Tailwind CSS**, animated with **Framer Motion**, with charts from **Recharts**.
+## Preview
 
-## Pages
+[Visit the live portfolio](https://ssu-portfolio-tau.vercel.app)
 
-| Page | Route |
-| --- | --- |
-| Home | `/` |
-| About | `/about` |
-| Experience | `/experience` |
-| Research Themes | `/research-themes` |
-| Publications | `/publications` |
-| Books | `/books` |
-| Conferences | `/conferences` |
-| Science Writing | `/science-writing` |
-| Impact | `/impact` |
-| Awards | `/awards` |
-| Gallery | `/gallery` |
-| Contact | `/contact` |
+## Features
 
-Routes are defined in [`src/routes/router.tsx`](src/routes/router.tsx).
+- Dedicated routes for academic content and professional work
+- Typed content data that keeps editorial updates separate from presentation code
+- Responsive layouts for research, publications, books, conferences, and gallery content
+- Motion and chart components for a polished but readable experience
+- Static-host deployment support
+
+## Technology
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Recharts
+- Radix UI primitives
 
 ## Project structure
 
-```
+```text
 .
-├── index.html            # Vite entry
-├── public/               # Static files (images, resume.pdf, favicon)
-└── src/
-    ├── main.tsx          # App bootstrap
-    ├── App.tsx           # Router provider
-    ├── routes/           # Route table
-    ├── pages/portfolio/  # One file per page
-    ├── components/       # Layout, cards, charts and UI primitives
-    ├── data/             # All site content (edit these to update the site)
-    ├── hooks/            # Reusable React hooks
-    └── lib/              # Helpers
+├── public/                 # Images, documents, favicon, and other static assets
+├── src/
+│   ├── components/         # Layout, cards, charts, and reusable UI
+│   ├── data/               # Typed portfolio content
+│   ├── hooks/              # Reusable React hooks
+│   ├── lib/                # Shared helpers
+│   ├── pages/portfolio/    # Route-level portfolio pages
+│   ├── routes/             # Application route table
+│   ├── App.tsx             # Router provider and app shell
+│   └── main.tsx            # Vite entry point
+├── index.html
+└── package.json
 ```
 
-## Updating content
+Keep editorial content in `src/data/`, reusable interface patterns in `src/components/`, and route-specific composition in `src/pages/portfolio/`.
 
-All text lives in typed data files under [`src/data/`](src/data) — for example `profile.ts`, `publications.ts`, `books.ts`, `awards.ts`, `gallery.ts`. Edit a file, commit, and the site rebuilds. Images go in `public/images/`.
+## Getting started
 
-## Run locally
-
-Requires Node.js 18.17 or newer.
+Requirements: Node.js 18.17 or newer and npm.
 
 ```bash
 npm install
-npm run dev        # start dev server
-npm run build      # type-check + production build to dist/
-npm run typecheck  # type-check only
+npm run dev
 ```
 
-## Deploy
+Useful checks:
 
-Any static host works (Vercel, Netlify, GitHub Pages). Build command `npm run build`, output directory `dist`.
+```bash
+npm run typecheck
+npm run build
+```
 
----
+The production build is written to `dist/`.
+
+## Deployment
+
+Deploy the `dist/` directory to Vercel, Netlify, GitHub Pages, or another static host. The build command is `npm run build`.
+
+## Content updates
+
+Most site copy is centralized in typed files under `src/data/`, including profile, publications, books, awards, gallery, and research content. Update those files rather than duplicating text inside page components.
+
+## Contributing
+
+Preserve accessibility, responsive behavior, and the existing academic tone. Run type-checking and a production build before submitting changes.
+
+## Maintainer
 
 Maintained by [Suraj Dhal](https://surajdhal.com).
+
+## License
+
+No license has been declared yet.
