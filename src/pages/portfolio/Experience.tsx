@@ -10,15 +10,16 @@ export function Experience() {
     <>
       <PageIntro eyebrow="Professional journey" title="A chronological path from clinical practice to HR and academia">
         <p>
-          The timeline shows a deliberate movement from rehabilitation-focused clinical work into HR operations, doctoral research, and management
-          education.
+          The timeline shows a deliberate movement from rehabilitation-focused clinical work into HR operations,
+          doctoral research, and management education.
         </p>
       </PageIntro>
 
       <section className="container-grid pb-16 md:pb-24">
         <Reveal>
           <SectionHeading eyebrow="Timeline" title="Roles and transitions">
-            Each role is summarized from the provided bio data without adding responsibilities beyond the source material.
+            Each role is summarized from the provided bio data without adding responsibilities beyond the source
+            material.
           </SectionHeading>
         </Reveal>
         <div className="relative">
@@ -48,7 +49,8 @@ export function Experience() {
         <div className="container-grid">
           <Reveal>
             <SectionHeading eyebrow="Pattern" title="The career arc is coherent">
-              Clinical exposure informed healthcare questions; HR practice informed organizational questions; doctoral work turned both into research.
+              Clinical exposure informed healthcare questions; HR practice informed organizational questions; doctoral
+              work turned both into research.
             </SectionHeading>
           </Reveal>
           <div className="grid gap-4 md:grid-cols-3">

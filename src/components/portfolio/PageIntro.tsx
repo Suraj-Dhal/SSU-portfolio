@@ -6,7 +6,7 @@ export function PageIntro({
   eyebrow,
   title,
   children,
-  aside
+  aside,
 }: {
   eyebrow: string;
   title: string;

@@ -9,6 +9,5 @@ export const contact = {
   phone: "",
   address: "Sri Sri University, Odisha, India",
   links: verifiedLinks,
-  note:
-    "The provided data does not include a verified email address or mobile number. Academic profile links are limited to verified source URLs."
+  note: "The provided data does not include a verified email address or mobile number. Academic profile links are limited to verified source URLs.",
 };

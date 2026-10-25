@@ -10,7 +10,8 @@ export function Awards() {
     <>
       <PageIntro eyebrow="Awards and recognitions" title="Recognition grounded in academic and authorial activity">
         <p>
-          Awards are presented with restrained emphasis and only where the uploaded source data verifies the award name, context, or recognition.
+          Awards are presented with restrained emphasis and only where the uploaded source data verifies the award name,
+          context, or recognition.
         </p>
       </PageIntro>
 

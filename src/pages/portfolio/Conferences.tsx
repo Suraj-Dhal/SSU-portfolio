@@ -42,9 +42,13 @@ function EngagementList({ items }: { items: Engagement[] }) {
 export function Conferences() {
   return (
     <>
-      <PageIntro eyebrow="Scholarly engagement" title="Conference presentations, FDPs, workshops, and public academic forums">
+      <PageIntro
+        eyebrow="Scholarly engagement"
+        title="Conference presentations, FDPs, workshops, and public academic forums"
+      >
         <p>
-          This page documents the presentation and professional development activity listed in the SSU and portfolio research extracts.
+          This page documents the presentation and professional development activity listed in the SSU and portfolio
+          research extracts.
         </p>
       </PageIntro>
 
@@ -69,7 +73,8 @@ export function Conferences() {
 
         <Reveal className="mt-14">
           <SectionHeading eyebrow="Conference presentations" title="Paper presentations">
-            Presentations include healthcare competencies, AI in healthcare organizations, sustainability in Odisha, industrial relations, and CSR.
+            Presentations include healthcare competencies, AI in healthcare organizations, sustainability in Odisha,
+            industrial relations, and CSR.
           </SectionHeading>
         </Reveal>
         <EngagementList items={conferences} />
@@ -83,15 +88,16 @@ export function Conferences() {
 
         <Reveal className="mt-14">
           <SectionHeading eyebrow="Public academic forums" title="Talks and institutional engagements">
-            These items are included only where the portfolio research extract gives a named forum or documented streamed reference.
+            These items are included only where the portfolio research extract gives a named forum or documented
+            streamed reference.
           </SectionHeading>
         </Reveal>
         <EngagementList items={publicTalks} />
 
         <div className="mt-8">
           <SourceNote>
-            The conference count shown on the home page uses the eight conference presentations from the SSU data. Public forum items are presented
-            separately and are not added to that metric.
+            The conference count shown on the home page uses the eight conference presentations from the SSU data.
+            Public forum items are presented separately and are not added to that metric.
           </SourceNote>
         </div>
       </section>

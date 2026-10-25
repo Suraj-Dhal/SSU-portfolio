@@ -2,7 +2,6 @@ import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recha
 import { ChartCard } from "@/components/portfolio/ChartCard";
 import { PageIntro } from "@/components/portfolio/PageIntro";
 import { Reveal } from "@/components/portfolio/Reveal";
-import { SectionHeading } from "@/components/portfolio/SectionHeading";
 import { themeDistribution } from "@/data/impact";
 import { researchThemes } from "@/data/researchThemes";
 
@@ -11,8 +10,8 @@ export function ResearchThemes() {
     <>
       <PageIntro eyebrow="Research themes" title="An interpretive map of the scholarship">
         <p>
-          The themes below organize the verified research interests and publication clusters into four practical domains: HRM, healthcare systems,
-          sustainability, and digital behavior.
+          The themes below organize the verified research interests and publication clusters into four practical
+          domains: HRM, healthcare systems, sustainability, and digital behavior.
         </p>
       </PageIntro>
 

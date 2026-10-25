@@ -20,5 +20,5 @@
     }
   },
   "include": ["src", "vite.config.ts"],
-  "exclude": ["node_modules", "app", "components", "content", "lib", ".next"]
+  "exclude": ["node_modules"]
 }

@@ -8,10 +8,14 @@ import { profile } from "@/data/profile";
 export function About() {
   return (
     <>
-      <PageIntro eyebrow="Academic biography" title="An intellectual formation across clinical practice, HR, and management research">
+      <PageIntro
+        eyebrow="Academic biography"
+        title="An intellectual formation across clinical practice, HR, and management research"
+      >
         <p>
-          {profile.name} is Assistant Professor in HR at the Faculty of Management Studies, Sri Sri University. Her profile is shaped by a clinical
-          foundation in prosthetics and orthotics, industry HR practice, doctoral research in management, and teaching in management education.
+          {profile.name} is Assistant Professor in HR at the Faculty of Management Studies, Sri Sri University. Her
+          profile is shaped by a clinical foundation in prosthetics and orthotics, industry HR practice, doctoral
+          research in management, and teaching in management education.
         </p>
       </PageIntro>
 
@@ -21,32 +25,35 @@ export function About() {
             <article className="prose-block">
               <h2>From clinical foundations to human systems</h2>
               <p>
-                Dr. Dhal's early academic formation was in Prosthetics and Orthotics at Utkal University / SVNIRTAR from 2003 to 2008, where the source
-                data identifies her as batch topper. That foundation matters because it placed her first professional lens inside rehabilitation,
-                patient support, fitment work, and health-related practice.
+                Dr. Dhal's early academic formation was in Prosthetics and Orthotics at Utkal University / SVNIRTAR from
+                2003 to 2008, where the source data identifies her as batch topper. That foundation matters because it
+                placed her first professional lens inside rehabilitation, patient support, fitment work, and
+                health-related practice.
               </p>
             </article>
             <article className="prose-block">
               <h2>Transition into management and HR</h2>
               <p>
-                After clinical work as a Jr. Prosthetist and Orthotist, she completed an MBA in HR and Marketing from 2010 to 2012 with first-grade
-                performance noted in the source. Her HR Executive and HR Manager roles then built practical experience in recruitment, manpower
-                planning, induction, training, employee records, attendance, and exit formalities.
+                After clinical work as a Jr. Prosthetist and Orthotist, she completed an MBA in HR and Marketing from
+                2010 to 2012 with first-grade performance noted in the source. Her HR Executive and HR Manager roles
+                then built practical experience in recruitment, manpower planning, induction, training, employee
+                records, attendance, and exit formalities.
               </p>
             </article>
             <article className="prose-block">
               <h2>Doctoral research and academic identity</h2>
               <p>
-                Her Ph.D. in Management at Birla Global University, 2020-2024, anchors her current research identity. The verified research interests
-                include competency mapping, training and development, sustainability, and issues and challenges in hospital and healthcare systems.
+                Her Ph.D. in Management at Birla Global University, 2020-2024, anchors her current research identity.
+                The verified research interests include competency mapping, training and development, sustainability,
+                and issues and challenges in hospital and healthcare systems.
               </p>
             </article>
             <article className="prose-block">
               <h2>Scholar, educator, and science communicator</h2>
               <p>
-                The source material presents her as research-oriented, observant, nature-loving, and active as an author and writer. Professionally,
-                that public-facing dimension appears through Science Horizon articles on sleep paralysis, desertification, plastics, geotourism, and
-                space science.
+                The source material presents her as research-oriented, observant, nature-loving, and active as an author
+                and writer. Professionally, that public-facing dimension appears through Science Horizon articles on
+                sleep paralysis, desertification, plastics, geotourism, and space science.
               </p>
             </article>
           </Reveal>
@@ -79,7 +86,8 @@ export function About() {
         <div className="container-grid">
           <Reveal>
             <SectionHeading eyebrow="Milestones" title="Education as a bridge between disciplines">
-              Each milestone explains a later research emphasis: clinical competence, HR systems, organizational performance, and public relevance.
+              Each milestone explains a later research emphasis: clinical competence, HR systems, organizational
+              performance, and public relevance.
             </SectionHeading>
           </Reveal>
           <div className="grid gap-5 md:grid-cols-3">
@@ -95,7 +103,10 @@ export function About() {
             ))}
           </div>
           <div className="mt-8">
-            <SourceNote>Degree wording follows the user-provided brief and the bio timeline: Ph.D. in Management, Birla Global University, 2020-2024.</SourceNote>
+            <SourceNote>
+              Degree wording follows the user-provided brief and the bio timeline: Ph.D. in Management, Birla Global
+              University, 2020-2024.
+            </SourceNote>
           </div>
         </div>
       </section>

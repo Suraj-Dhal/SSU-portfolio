@@ -1,8 +1,16 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
-.env
-.env.*
+*.tsbuildinfo
+coverage
+
+# Environment
+.env*
 !.env.example
+
+# Tooling
+.vercel
 .DS_Store
 *.log
-.vercel
