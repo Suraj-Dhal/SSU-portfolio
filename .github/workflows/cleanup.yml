@@ -1,0 +1,179 @@
+name: Repo cleanup (one-time)
+
+on:
+  push:
+    paths:
+      - ".github/workflows/cleanup.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prune source files that nothing imports
+        run: |
+          cat > /tmp/prune.mjs <<'EOF'
+          import fs from "fs";
+          import path from "path";
+          const SRC = "src";
+          const all = [];
+          (function walk(d) {
+            for (const e of fs.readdirSync(d, { withFileTypes: true })) {
+              const p = path.join(d, e.name);
+              e.isDirectory() ? walk(p) : all.push(path.normalize(p));
+            }
+          })(SRC);
+          if (all.some((f) => /\.(t|j)sx?$/.test(f) && fs.readFileSync(f, "utf8").includes("import.meta.glob"))) {
+            console.log("import.meta.glob found - skipping prune to stay safe");
+            process.exit(0);
+          }
+          const exts = ["", ".ts", ".tsx", ".js", ".jsx", ".mjs", ".css", ".json", "/index.ts", "/index.tsx", "/index.js"];
+          function resolve(from, spec) {
+            let base;
+            if (spec.startsWith("@/")) base = path.join(SRC, spec.slice(2));
+            else if (spec.startsWith(".")) base = path.join(path.dirname(from), spec);
+            else if (spec.startsWith("/src/")) base = spec.slice(1);
+            else return null;
+            base = base.split("?")[0];
+            for (const e of exts) {
+              const c = path.normalize(base + e);
+              if (fs.existsSync(c) && fs.statSync(c).isFile()) return c;
+            }
+            return null;
+          }
+          const re = /(?:import|export)\s[^'"]*?from\s*['"]([^'"]+)['"]|import\s*\(\s*['"]([^'"]+)['"]\s*\)|import\s+['"]([^'"]+)['"]|@import\s+['"]([^'"]+)['"]|url\(\s*['"]?([^'")]+)/g;
+          const html = fs.readFileSync("index.html", "utf8");
+          const queue = [...html.matchAll(/src="\/?(src\/[^"]+)"/g)].map((m) => path.normalize(m[1]));
+          const seen = new Set();
+          while (queue.length) {
+            const f = queue.shift();
+            if (seen.has(f) || !fs.existsSync(f)) continue;
+            seen.add(f);
+            if (!/\.(tsx?|jsx?|mjs|css)$/.test(f)) continue;
+            const txt = fs.readFileSync(f, "utf8");
+            for (const m of txt.matchAll(re)) {
+              const spec = m[1] || m[2] || m[3] || m[4] || m[5];
+              const r = resolve(f, spec);
+              if (r && !seen.has(r)) queue.push(r);
+            }
+          }
+          if (seen.size === 0) { console.log("No entry found - abort"); process.exit(1); }
+          const dead = all.filter((f) => !seen.has(f) && !f.endsWith(".d.ts"));
+          console.log(`Reachable: ${seen.size}, removing ${dead.length}:`);
+          for (const f of dead) { console.log("  - " + f); fs.rmSync(f); }
+          (function rmEmpty(d) {
+            for (const e of fs.readdirSync(d, { withFileTypes: true })) if (e.isDirectory()) rmEmpty(path.join(d, e.name));
+            if (fs.readdirSync(d).length === 0) fs.rmdirSync(d);
+          })(SRC);
+          EOF
+          node /tmp/prune.mjs
+          # root styles.css is a leftover if nothing references it
+          if [ -f styles.css ] && ! grep -rqs --exclude-dir=node_modules --exclude-dir=.git "styles.css" index.html src tailwind.config.ts vite.config.ts postcss.config.mjs; then
+            echo "Removing unused root styles.css"; rm styles.css
+          fi
+
+      - name: Rename package and add .gitignore
+        run: |
+          node -e '
+          const fs=require("fs");
+          const p=JSON.parse(fs.readFileSync("package.json"));p.name="sharanika-dhal-portfolio";
+          fs.writeFileSync("package.json",JSON.stringify(p,null,2)+"\n");
+          const l=JSON.parse(fs.readFileSync("package-lock.json"));l.name=p.name;if(l.packages&&l.packages[""])l.packages[""].name=p.name;
+          fs.writeFileSync("package-lock.json",JSON.stringify(l,null,2)+"\n");'
+          if [ ! -f .gitignore ]; then
+            printf 'node_modules/\ndist/\n.env\n.env.*\n!.env.example\n.DS_Store\n*.log\n.vercel\n' > .gitignore
+          fi
+
+      - name: Write README
+        run: |
+          cat > README.md <<'EOF'
+          # Dr. Sharanika Dhal — Academic Portfolio
+
+          Personal academic portfolio website for **Dr. Sharanika Dhal**, presenting her research, publications, books, conference work, science writing, awards and outreach in one place.
+
+          Built with **React + TypeScript + Vite**, styled with **Tailwind CSS**, animated with **Framer Motion**, with charts from **Recharts**.
+
+          ## Pages
+
+          | Page | Route |
+          | --- | --- |
+          | Home | `/` |
+          | About | `/about` |
+          | Experience | `/experience` |
+          | Research Themes | `/research-themes` |
+          | Publications | `/publications` |
+          | Books | `/books` |
+          | Conferences | `/conferences` |
+          | Science Writing | `/science-writing` |
+          | Impact | `/impact` |
+          | Awards | `/awards` |
+          | Gallery | `/gallery` |
+          | Contact | `/contact` |
+
+          Routes are defined in [`src/routes/router.tsx`](src/routes/router.tsx).
+
+          ## Project structure
+
+          ```
+          .
+          ├── index.html            # Vite entry
+          ├── public/               # Static files (images, resume.pdf, favicon)
+          └── src/
+              ├── main.tsx          # App bootstrap
+              ├── App.tsx           # Router provider
+              ├── routes/           # Route table
+              ├── pages/portfolio/  # One file per page
+              ├── components/       # Layout, cards, charts and UI primitives
+              ├── data/             # All site content (edit these to update the site)
+              ├── hooks/            # Reusable React hooks
+              └── lib/              # Helpers
+          ```
+
+          ## Updating content
+
+          All text lives in typed data files under [`src/data/`](src/data) — for example `profile.ts`, `publications.ts`, `books.ts`, `awards.ts`, `gallery.ts`. Edit a file, commit, and the site rebuilds. Images go in `public/images/`.
+
+          ## Run locally
+
+          Requires Node.js 18.17 or newer.
+
+          ```bash
+          npm install
+          npm run dev        # start dev server
+          npm run build      # type-check + production build to dist/
+          npm run typecheck  # type-check only
+          ```
+
+          ## Deploy
+
+          Any static host works (Vercel, Netlify, GitHub Pages). Build command `npm run build`, output directory `dist`.
+
+          ---
+
+          Maintained by [Suraj Dhal](https://surajdhal.com).
+          EOF
+
+      - name: Verify production build
+        run: npm run build
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git reset -q -- .github
+          if git diff --cached --quiet; then echo "Nothing to commit"; exit 0; fi
+          git commit -m "Restructure: remove unused dashboard code, add .gitignore, rewrite README" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>" -m "Claude-Session: https://claude.ai/code/session_013dQJPgjxW3aHhNF7VagGuP"
+          git push
